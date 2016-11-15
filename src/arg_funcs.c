@@ -19,7 +19,7 @@ int			arg_ispath(char *arg)
 }
 
 /*
-**
+**	Returns 1 if all arguments are valid, otherwise returns 0
 */
 static int	args_are_valid(int argc, char **argv)
 {
@@ -41,7 +41,8 @@ static int	args_are_valid(int argc, char **argv)
 }
 
 /*
-**
+**	If arguments are present, checks that the arguments are valid and sets
+**	'lsargs' members.
 */
 void		analyze_args(int argc, char **argv, t_lsargs *lsargs)
 {
@@ -68,7 +69,6 @@ void		analyze_args(int argc, char **argv, t_lsargs *lsargs)
 					lsargs_set(argv[scnt][ccnt], lsargs);
 					ccnt++;
 				}
-				// ccnt = 0;
 			}
 		}
 		ccnt = 0;
