@@ -52,3 +52,30 @@ char	*ls_getpath(t_lsargs *lsargs, char *d_name)
 	ft_strcat(pth, d_name);
 	return (pth);
 }
+
+void	ls_set_dirpath(t_ls *ls, struct stat *st, char *pth)
+{
+	if (S_ISDIR(st->st_mode) > 0)
+	{
+		ls->is_dir = 1;
+		ls->dir_path = ft_strdup(pth);
+	}
+	/*
+	else
+	{
+		ls->is_dir = 0;
+		ls->dir_path = ft_strdup("./");
+	}
+	*/
+}
+
+// void	t_ls_free(t_ls *ls)
+// {
+//
+// }
+
+// void	ls_set_stringvalues(t_ls *ls)
+// {
+// 	ls->strhlinks = format_hlinks(ls->hlinks);
+// 	// ls->strsize = format_size()
+// }

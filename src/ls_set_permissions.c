@@ -12,7 +12,7 @@ void		ls_set_permissions(t_ls *ls, struct stat *st)
 	char	*perms;
 
 	perms = (char *)malloc(sizeof(char) * 11);
-	ft_memset(perms, '0', 10);	//TEST - libft version may cause leaks
+	ft_memset(perms, '-', 10);	//TEST - libft version may cause leaks
 	if (S_ISDIR(st->st_mode) > 0)
 		perms[0] = 'd';
 	if (st->st_mode & S_IRUSR)
@@ -33,6 +33,5 @@ void		ls_set_permissions(t_ls *ls, struct stat *st)
 		perms[8] = 'w';
 	if (st->st_mode & S_IXOTH)
 		perms[9] = 'x';
-	// ls_set_permissions2(ls, st, perms);
 	ls_set_permissions2(ls, perms);
 }

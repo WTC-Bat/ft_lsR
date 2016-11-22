@@ -8,16 +8,21 @@ static void	ls_getelems2(t_ls *current, struct stat *st)
 	pd = getpwuid(st->st_uid);
 	gp = getgrgid(st->st_gid);
 	ls_set_permissions(current, st);	//current->perms = ls_set_permissions(st)
+	current->hlinks = st->st_nlink;		//nlink_t!
+	current->uname = ft_strdup(pd->pw_name);				//FORMAT
+	current->gname = ft_strdup(gp->gr_name);				//FORMAT
+	current->size = st->st_size;
+	current->ttmtime = st->st_mtime;
+	current->mod_time = format_time(&st->st_mtime);			//FORMAT
+	current->block_count = st->st_blocks;
+	current->is_dir = 0;
+	current->dir_path = NULL;
 
-	//TMP
-	// int cnt = 0;
-	// while (cnt < 11)
-	// {
-	// 	ft_putendl(current->perms[cnt])
-	// }
-	ft_putstr("PERMS:");
-	ft_putendl(current->perms);
-	//TMP
+	//current->strhlinks
+	//current->strsize
+
+	// free(pd);
+	// free(gp);
 }
 
 static void	ls_getelems(DIR *d, t_lsargs *lsargs, t_ls *ls)
@@ -25,10 +30,10 @@ static void	ls_getelems(DIR *d, t_lsargs *lsargs, t_ls *ls)
 	struct dirent	*dent;
 	struct stat		*st;
 	t_ls			*current;
-	// struct t_ls		*root;	//?
+	t_ls			*root;	//?
 	char			*pth;
 
-	ls = NULL;
+	root = NULL;
 	st = (struct stat *)malloc(sizeof(struct stat));
 	while ((dent = readdir(d)) != NULL)
 	{
@@ -36,13 +41,18 @@ static void	ls_getelems(DIR *d, t_lsargs *lsargs, t_ls *ls)
 		lstat(pth, st);
 		current = (t_ls *)malloc(sizeof(t_ls));
 		current->name = ls_getname(dent->d_name, st, pth, lsargs);
-
 		ls_getelems2(current, st);
-
+		ls_set_dirpath(ls, st, pth);
+		current->next = root; //root;
+		root = current; //root = current;
 		free(pth);//? or below?
 	}
 	free(st);//?
+	// free(current);
 	//free(path);//? or above
+	ls = root;
+	ft_putendl("FORMATTING");
+	ls_format(ls);
 }
 
 static void	ls_init(t_lsargs *lsargs, t_ls *ls)
