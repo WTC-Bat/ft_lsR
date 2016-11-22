@@ -43,5 +43,8 @@ void	analyze_args(int argc, char **argv, t_lsargs *lsargs);
 void	lsargs_init(int argc, char **argv, t_lsargs *lsargs);
 int		arg_ispath(char *arg);
 void	lsargs_set(char c, t_lsargs *lsargs);
+char	*ls_getpath(t_lsargs *lsargs, char *d_name);
+char	*ls_getname(char *d_name, struct stat *st, char *pth, t_lsargs *lsargs);
+void	ls_set_permissions(t_ls *ls, struct stat *st);
 
 #endif
