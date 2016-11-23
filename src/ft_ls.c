@@ -48,9 +48,10 @@ static void	ls_getelems(DIR *d, t_lsargs *lsargs, t_ls *ls)
 		free(pth);//? or below?
 	}
 	free(st);//?
-	// free(current);
+	// free(current); //root?
 	//free(path);//? or above
 	ls = root;
+	// ls = current;
 	ft_putendl("FORMATTING");
 	ls_format(ls);
 }

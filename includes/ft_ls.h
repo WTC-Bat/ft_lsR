@@ -58,6 +58,7 @@ char	*ls_getpath(t_lsargs *lsargs, char *d_name);
 char	*ls_getname(char *d_name, struct stat *st, char *pth, t_lsargs *lsargs);
 void	ls_set_dirpath(t_ls *ls, struct stat *st, char *pth);
 void	ls_set_stringvalues(t_ls *ls);
+void	t_ls_free(t_ls *ls);
 /*ls_set_permissions.c*/
 void	ls_set_permissions(t_ls *ls, struct stat *st);
 /*lsargs_funcs.c*/

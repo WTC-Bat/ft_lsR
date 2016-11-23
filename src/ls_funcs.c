@@ -69,10 +69,16 @@ void	ls_set_dirpath(t_ls *ls, struct stat *st, char *pth)
 	*/
 }
 
-// void	t_ls_free(t_ls *ls)
-// {
-//
-// }
+void	t_ls_free(t_ls *ls)
+{
+	while (ls != NULL)
+	{
+		// ft_strdel((&ls->perms));?
+		ls->perms = NULL;//?
+		ft_strdel(&(ls)->strhlinks);
+		ls = ls->next;
+	}
+}
 
 // void	ls_set_stringvalues(t_ls *ls)
 // {
