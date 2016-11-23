@@ -73,9 +73,15 @@ void	t_ls_free(t_ls *ls)
 {
 	while (ls != NULL)
 	{
-		// ft_strdel((&ls->perms));?
-		ls->perms = NULL;//?
-		ft_strdel(&(ls)->strhlinks);
+		ft_strdel(&(ls)->perms);
+		// ft_strdel(&(ls)->strhlinks);
+		ft_strdel(&(ls)->uname);
+		ft_strdel(&(ls)->gname);
+		// ft_strdel(&(ls)->strsize);
+		ft_strdel(&(ls)->mod_time);
+		// ft_strdel(&(ls)->name);
+		ft_strdel(&(ls)->dir_path);
+
 		ls = ls->next;
 	}
 }

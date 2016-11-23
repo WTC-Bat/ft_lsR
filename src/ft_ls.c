@@ -25,7 +25,7 @@ static void	ls_getelems2(t_ls *current, struct stat *st)
 	// free(gp);
 }
 
-static void	ls_getelems(DIR *d, t_lsargs *lsargs, t_ls *ls)
+static t_ls	*ls_getelems(DIR *d, t_lsargs *lsargs)
 {
 	struct dirent	*dent;
 	struct stat		*st;
@@ -42,7 +42,7 @@ static void	ls_getelems(DIR *d, t_lsargs *lsargs, t_ls *ls)
 		current = (t_ls *)malloc(sizeof(t_ls));
 		current->name = ls_getname(dent->d_name, st, pth, lsargs);
 		ls_getelems2(current, st);
-		ls_set_dirpath(ls, st, pth);
+		ls_set_dirpath(current, st, pth);
 		current->next = root; //root;
 		root = current; //root = current;
 		free(pth);//? or below?
@@ -50,15 +50,16 @@ static void	ls_getelems(DIR *d, t_lsargs *lsargs, t_ls *ls)
 	free(st);//?
 	// free(current); //root?
 	//free(path);//? or above
-	ls = root;
 	// ls = current;
 	ft_putendl("FORMATTING");
-	ls_format(ls);
+	// ls_format(root);
+	return (root);
 }
 
-static void	ls_init(t_lsargs *lsargs, t_ls *ls)
+static t_ls	*ls_init(t_lsargs *lsargs)
 {
 	DIR		*d;
+	t_ls	*ls;
 
 	d = opendir(lsargs->path);
 	if (d == NULL)
@@ -67,9 +68,10 @@ static void	ls_init(t_lsargs *lsargs, t_ls *ls)
 		ft_putendl_fd(lsargs->path, 2);
 		exit(1);
 	}
-	ls_getelems(d, lsargs, ls);
+	ls = ls_getelems(d, lsargs);
 	closedir(d);
 	// free(d);	//?
+	return (ls);
 }
 
 int			main(int argc, char **argv)
@@ -81,8 +83,9 @@ int			main(int argc, char **argv)
 	lsargs = (t_lsargs *)malloc(sizeof(t_lsargs));
 	analyze_args(argc, argv, lsargs);
 	// ls = ls_init(lsargs);
-	ls_init(lsargs, ls);
+	ls = ls_init(lsargs);
 	free(lsargs->path);
 	free(lsargs);
+	t_ls_free(ls);
 	return (0);
 }
