@@ -52,7 +52,7 @@ static t_ls	*ls_getelems(DIR *d, t_lsargs *lsargs)
 	//free(path);//? or above
 	// ls = current;
 	ft_putendl("FORMATTING");
-	// ls_format(root);
+	ls_format(root);
 	return (root);
 }
 

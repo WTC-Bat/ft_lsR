@@ -5,14 +5,14 @@
 */
 int	get_longest(t_ls *ls, char c)
 {
-	t_ls	*root;
+	// t_ls	*root;
 	size_t	len;
 	size_t	longest;
 	char	*tmp;
 
 	ft_putendl("GET_LONGEST");
 
-	root = ls;
+	// root = ls;
 	len = 0;
 	longest = 0;
 	while (ls != NULL)
@@ -28,11 +28,10 @@ int	get_longest(t_ls *ls, char c)
 		len = ft_strlen(tmp);
 		if (len > longest)
 			longest = len;
+		// ft_strdel(&tmp);	//free(tmp);	//malloc error. why?
 		ls = ls->next;
-		// ft_putendl("FREEING");
-		// free(tmp);	//ft_strdel?
 	}
-	ls = root;
+	// ls = root;
 	ft_putendl("RETURNING");
 	return (longest);
 }
