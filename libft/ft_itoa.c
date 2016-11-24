@@ -62,6 +62,7 @@ char			*ft_itoa(int n)
 
 	nlen = get_len(n);
 	istr = (char *)malloc(sizeof(char) * (nlen + 1));
+	*istr = '\0';
 	if (istr == NULL)
 		return (NULL);
 	nbr = set_nbr(n);

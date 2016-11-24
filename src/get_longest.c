@@ -18,9 +18,11 @@ int	get_longest(t_ls *ls, char c)
 	while (ls != NULL)
 	{
 		if (c == 'h')
-			tmp = ft_itoa(ls->hlinks);	//ft_strdup the ft_itoa return? but then ft_itoa's malloc will be ignored and un-freeable
+			// tmp = ft_itoa(ls->hlinks);	//ft_strdup the ft_itoa return? but then ft_itoa's malloc will be ignored and un-freeable
+			tmp = ft_strdup(ft_itoa(ls->hlinks));
 		else if (c == 's')
-			tmp = ft_itoa(ls->size);
+			// tmp = ft_itoa(ls->size);
+			tmp = ft_strdup(ft_itoa(ls->size));
 		else if (c == 'u')
 			tmp = ft_strdup(ls->uname);
 		else if (c == 'g')
@@ -28,7 +30,7 @@ int	get_longest(t_ls *ls, char c)
 		len = ft_strlen(tmp);
 		if (len > longest)
 			longest = len;
-		// ft_strdel(&tmp);	//free(tmp);	//malloc error. why?
+		ft_strdel(&tmp);	//free(tmp);	//malloc error. why?
 		ls = ls->next;
 	}
 	// ls = root;
