@@ -7,3 +7,4 @@
 		-	get_longest.c	->	get_longest()
 		-	ls_format.c		->	format_hlinks()
 		-	(possibly other places, double check)
+-	Double check on freeing structs

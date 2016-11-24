@@ -20,7 +20,6 @@ typedef struct	s_lsargs
 	char		*path;
 }				t_lsargs;
 
-/*typedef struct s_file*/
 typedef struct		s_ls
 {
 	char			*perms;
@@ -46,10 +45,6 @@ int		arg_ispath(char *arg);
 /*format_funcs.c*/
 char	*format_time(time_t *ttmtime);
 /*get_longest.c*/
-// int		longest_hlinks(t_ls *ls);
-// int		longest_size(t_ls *ls);
-// int		longest_uname(t_ls *ls);
-// int		longest_gname(t_ls *ls);
 int		get_longest(t_ls *ls, char c);
 /*ls_format.c*/
 void	ls_format(t_ls *ls);

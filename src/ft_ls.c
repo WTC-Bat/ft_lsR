@@ -21,8 +21,8 @@ static void	ls_getelems2(t_ls *current, struct stat *st)
 	//current->strhlinks
 	//current->strsize
 
-	// free(pd);
-	// free(gp);
+	// free(pd);	//?
+	// free(gp);	//?
 }
 
 static t_ls	*ls_getelems(DIR *d, t_lsargs *lsargs)
@@ -45,12 +45,10 @@ static t_ls	*ls_getelems(DIR *d, t_lsargs *lsargs)
 		ls_set_dirpath(current, st, pth);
 		current->next = root; //root;
 		root = current; //root = current;
-		free(pth);//? or below?
+		ft_strdel(&pth); //free(pth);//? or below?
 	}
 	free(st);//?
-	// free(current); //root?
-	//free(path);//? or above
-	// ls = current;
+	// free(current);	//t_ls_free?
 	ft_putendl("FORMATTING");
 	ls_format(root);
 	return (root);
@@ -70,7 +68,6 @@ static t_ls	*ls_init(t_lsargs *lsargs)
 	}
 	ls = ls_getelems(d, lsargs);
 	closedir(d);
-	// free(d);	//?
 	return (ls);
 }
 
@@ -84,8 +81,8 @@ int			main(int argc, char **argv)
 	analyze_args(argc, argv, lsargs);
 	// ls = ls_init(lsargs);
 	ls = ls_init(lsargs);
-	free(lsargs->path);
-	free(lsargs);
+	ft_strdel(&(lsargs)->path); 	//free(lsargs->path); //unless dedicated function
+	free(lsargs);					//make a dedicated function?
 	t_ls_free(ls);
 	return (0);
 }
