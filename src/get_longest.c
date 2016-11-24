@@ -18,7 +18,7 @@ int	get_longest(t_ls *ls, char c)
 	while (ls != NULL)
 	{
 		if (c == 'h')
-			tmp = ft_itoa(ls->hlinks);
+			tmp = ft_itoa(ls->hlinks);	//ft_strdup the ft_itoa return? but then ft_itoa's malloc will be ignored and un-freeable
 		else if (c == 's')
 			tmp = ft_itoa(ls->size);
 		else if (c == 'u')
