@@ -60,7 +60,7 @@ void		ls_format(t_ls *ls)
 
 	hlen = get_longest(ls, 'h');
 	// format_hlinks(ls, hlen);
-	// slen = get_longest(t_ls *ls, 's');
-	// ulen = get_longest(t_ls *ls, 'u');
-	// glen = get_longest(t_ls *ls, 'g');
+	// slen = get_longest(ls, 's');
+	// ulen = get_longest(ls, 'u');
+	// glen = get_longest(ls, 'g');
 }
