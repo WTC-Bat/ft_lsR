@@ -62,7 +62,6 @@ char			*ft_itoa(int n)
 
 	nlen = get_len(n);
 	istr = (char *)malloc(sizeof(char) * (nlen + 1));
-	*istr = '\0';
 	if (istr == NULL)
 		return (NULL);
 	nbr = set_nbr(n);
@@ -79,4 +78,4 @@ char			*ft_itoa(int n)
 	if (n == -2147483648)
 		istr[ft_strlen(istr) - 1] = '8';
 	return (istr);
-}
+ }
