@@ -8,3 +8,8 @@
 		-	ls_format.c		->	format_hlinks()
 		-	(possibly other places, double check)
 -	Double check on freeing structs
+
+
+-	'format_hlinks' and 'format_size' in 'ls_format.c' are over 25 lines
+-	go over 'format_uname' and 'format_gname' in 'ls_format.c' and make sure
+	the logic is all correct

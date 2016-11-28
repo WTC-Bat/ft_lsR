@@ -25,6 +25,14 @@ static void	ls_getelems2(t_ls *current, struct stat *st)
 	// free(gp);	//?
 }
 
+/*
+**	Sets the various members of struct 't_ls *ls', apart from:
+**	ls->strhlinks
+**	ls->strsize
+**	ls->mod_time -?
+**
+**	These are set in 'ls_format'
+*/
 static t_ls	*ls_getelems(DIR *d, t_lsargs *lsargs)
 {
 	struct dirent	*dent;
@@ -81,8 +89,8 @@ int			main(int argc, char **argv)
 	analyze_args(argc, argv, lsargs);
 	// ls = ls_init(lsargs);
 	ls = ls_init(lsargs);
-	ft_strdel(&(lsargs)->path); 	//free(lsargs->path); //unless dedicated function
-	free(lsargs);					//make a dedicated function?
+	// ft_strdel(&(lsargs)->path); 	//free(lsargs->path); //unless dedicated function
+	free(lsargs);					//make a dedicated function? for above?
 	t_ls_free(ls);
 	return (0);
 }
