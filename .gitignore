@@ -3,3 +3,4 @@ ft_ls
 .DS_Store
 ._*
 *.dSYM
+*.o
