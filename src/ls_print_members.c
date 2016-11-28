@@ -17,7 +17,7 @@ void		ls_print_members(t_ls *ls)
 		ft_putstr("Hardlinks:\t");
 		ft_putnbr_endl(ls->hlinks);
 		ft_putstr("User Name:\t");
-		ft_putendl(ls->uname)l;
+		ft_putendl(ls->uname);
 		ft_putstr("Group Name:\t");
 		ft_putendl(ls->gname);
 		ft_putstr("Size:\t");

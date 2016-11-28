@@ -1,6 +1,6 @@
 #include "ft_ls.h"
 
-static void	ls_sort_az(t_ls *ls)
+void	ls_sort_az(t_ls *ls)
 {
 	t_ls	*root;
 	t_ls	*next;
@@ -50,7 +50,7 @@ static void	ls_sort_az(t_ls *ls)
 // 	}
 // }
 
-static void	ls_rsort_az(t_ls *ls)
+void	ls_rsort_az(t_ls *ls)
 {
 	t_ls	*root;
 	t_ls	*next;
@@ -81,7 +81,7 @@ static void	ls_rsort_az(t_ls *ls)
 //
 // }
 
-static void	ls_sort_mtime(t_ls *ls)
+void	ls_sort_mtime(t_ls *ls)
 {
 	t_ls	*root;
 	t_ls	*next;
@@ -103,7 +103,7 @@ static void	ls_sort_mtime(t_ls *ls)
 	}
 }
 
-static void	ls_rsort_mtime(t_ls *ls)
+void	ls_rsort_mtime(t_ls *ls)
 {
 	t_ls	*root;
 	t_ls	*next;

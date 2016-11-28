@@ -54,7 +54,6 @@ static t_ls	*ls_getelems(DIR *d, t_lsargs *lsargs)
 	}
 	free(st);//?
 	// free(current);	//t_ls_free?
-	ft_putendl("FORMATTING");
 	ls_format(root);
 	return (root);
 }

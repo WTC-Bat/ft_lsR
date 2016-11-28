@@ -2,25 +2,56 @@
 
 static void	print_total_blocks(t_ls *ls, t_lsargs *lsargs)
 {
-	ft_putendl("CHEESE");
-}
+	int		blocks;
 
-static void	ls_print_entry_long(t_ls *ls)
-{
-	ft_putendl("LONG");
+	blocks = 0;
+	ft_putstr("total ");
+	while (ls != NULL)
+	{
+		if (lsargs->show_all == 0)
+		{
+			if (ls->name[0] != '.')
+				blocks += ls->block_count;
+		}
+		else
+		{
+			blocks += ls->block_count;
+		}
+		ls = ls->next;
+	}
 }
 
 static void	ls_print_entry_basic(t_ls *ls)
 {
-	ft_putendl("BASIC");
+	ft_putstr(ls->name);
+	if (ls->next == NULL)
+		ft_putchar('\n');
+	else
+		ft_putchar(' ');
+}
+
+static void	ls_print_entry_long(t_ls *ls)
+{
+	ft_putstr(ls->perms);
+	ft_putchar(' ');
+	ft_putstr(ls->strhlinks);
+	ft_putchar(' ');
+	ft_putstr(ls->uname);
+	ft_putchar(' ');
+	ft_putstr(ls->gname);
+	ft_putchar(' ');
+	ft_putstr(ls->strsize);
+	ft_putchar(' ');
+	ft_putstr(ls->mod_time);
+	ft_putchar(' ');
+	ft_putstr(ls->name);
+	ft_putchar('\n');
 }
 
 static void	do_print(t_ls *ls, t_lsargs *lsargs)
 {
 	if (lsargs->long_form == 1)
-	{
 		print_total_blocks(ls, lsargs);
-	}
 	while (ls != NULL)
 	{
 		if (ls->name[0] == '.')
@@ -33,6 +64,14 @@ static void	do_print(t_ls *ls, t_lsargs *lsargs)
 					ls_print_entry_basic(ls);
 			}
 		}
+		else
+		{
+			if (lsargs->long_form == 1)
+				ls_print_entry_long(ls);
+			else
+				ls_print_entry_basic(ls);
+		}
+		ls = ls->next;
 	}
 }
 
