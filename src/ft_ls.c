@@ -18,9 +18,6 @@ static void	ls_getelems2(t_ls *current, struct stat *st)
 	current->is_dir = 0;
 	current->dir_path = NULL;
 
-	//current->strhlinks
-	//current->strsize
-
 	// free(pd);	//?
 	// free(gp);	//?
 }
@@ -87,7 +84,6 @@ int			main(int argc, char **argv)
 	ls = (t_ls *)malloc(sizeof(t_ls));
 	lsargs = (t_lsargs *)malloc(sizeof(t_lsargs));
 	analyze_args(argc, argv, lsargs);
-	// ls = ls_init(lsargs);
 	ls = ls_init(lsargs);
 	// ft_strdel(&(lsargs)->path); 	//free(lsargs->path); //unless dedicated function
 	free(lsargs);					//make a dedicated function? for above?

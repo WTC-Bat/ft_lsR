@@ -4,7 +4,7 @@ HEAD = "./includes/"
 HEADLFT = "./libft/"
 FLAGS = -Wall -Werror -Wextra
 SRCS = $(SRC)ft_ls.c $(SRC)arg_funcs.c $(SRC)lsargs_funcs.c $(SRC)ls_funcs.c \
-		$(SRC)ls_set_permissions.c $(SRC)format_funcs.c $(SRC)ls_format.c \
+		$(SRC)ls_set_permissions.c $(SRC)format_time.c $(SRC)ls_format.c \
 		$(SRC)get_longest.c
 
 all:$(NAME)

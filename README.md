@@ -9,6 +9,9 @@
 		-	(possibly other places, double check)
 -	Double check on freeing structs
 
+-	'format_*' functions do left padding. For right padding, instead of
+	"ft_strjoin(pad, 'var')," swap 'pad' and ''var''.
+	IE. "ft_strjoin('var', pad)"
 
 -	'format_hlinks' and 'format_size' in 'ls_format.c' are over 25 lines
 -	go over 'format_uname' and 'format_gname' in 'ls_format.c' and make sure

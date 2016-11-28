@@ -83,8 +83,6 @@ static void	format_uname(t_ls *ls, size_t longest)
 
 	while (ls != NULL)
 	{
-		// ustr = ft_strdup(ls->uname);
-		// len = ft_strlen(ustr);
 		len = ft_strlen(ls->uname);
 		padlen = longest - len;
 		if (padlen > 0)
@@ -104,10 +102,32 @@ static void	format_uname(t_ls *ls, size_t longest)
 }
 
 
-// static void	format_gname(t_ls *ls, size_t longest)
-// {
-//
-// }
+static void	format_gname(t_ls *ls, size_t longest)
+{
+	char	*gstr;
+	char	*pad;
+	size_t	len;
+	size_t	padlen;
+
+	while (ls != NULL)
+	{
+		len = ft_strlen(ls->gname);
+		padlen = longest - len;
+		if (padlen > 0)
+		{
+			if ((pad = (char *)malloc(sizeof(char) * padlen)) == NULL)
+				continue;
+			ft_memset(pad, ' ', padlen);
+			pad[padlen] = '\0';
+			gstr = ft_strdup(ls->gname);
+			ft_strdel(&(ls)->gname);
+			ls->gname = ft_strjoin(pad, gstr);
+			ft_strdel(&gstr);
+			ft_strdel(&pad);
+		}
+		ls = ls->next;
+	}
+}
 
 
 void		ls_format(t_ls *ls)
@@ -124,5 +144,5 @@ void		ls_format(t_ls *ls)
 	ulen = get_longest(ls, 'u');
 	format_uname(ls, ulen);
 	glen = get_longest(ls, 'g');
-	//format_gname(ls, glen);
+	format_gname(ls, glen);
 }
