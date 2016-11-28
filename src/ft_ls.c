@@ -58,7 +58,7 @@ static t_ls	*ls_getelems(DIR *d, t_lsargs *lsargs)
 	return (root);
 }
 
-static t_ls	*ls_init(t_lsargs *lsargs)
+t_ls		*ls_init(t_lsargs *lsargs)
 {
 	DIR		*d;
 	t_ls	*ls;

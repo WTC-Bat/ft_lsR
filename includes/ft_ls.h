@@ -61,6 +61,8 @@ void	t_ls_free(t_ls *ls);
 void	ls_print(t_ls *ls, t_lsargs *lsargs);
 /*ls_print_members.c*/
 void	ls_print_members(t_ls *ls);
+/*ls_recursion.c*/
+void	ls_recursion(t_ls *ls, t_lsargs *lsargs);
 /*ls_set_permissions.c*/
 void	ls_set_permissions(t_ls *ls, struct stat *st);
 /*ls_sort.c*/

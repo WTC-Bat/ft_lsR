@@ -8,13 +8,16 @@ void	ls_recursion(t_ls *ls, t_lsargs *lsargs)
 	rlsargs = lsargs;
 	while (ls != NULL)
 	{
-		if (ls->is_dir == 1)
+		if (ls->dir_path != NULL)
 		{
-			rlsargs->path = ls->dir_path;
-			ft_putendl(rlsargs->path);
-			rls = ls_init(rlsargs);
-			ls_print(rls, rlsargs);
-			ft_putchar('\n');
+			if ((ft_strequ(ls->dir_path, "./.") == 0) &&
+				(ft_strequ(ls->dir_path, "./..") == 0))
+			{
+				rlsargs->path = ls->dir_path;
+				rls = ls_init(rlsargs);
+				ls_print(rls, rlsargs);
+			}
 		}
+		ls = ls->next;
 	}
 }
