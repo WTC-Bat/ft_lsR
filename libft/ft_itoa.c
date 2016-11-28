@@ -23,7 +23,11 @@ static size_t	get_len(int n)
 		return (1);
 	if (n == -2147483648)
 <<<<<<< HEAD
+<<<<<<< HEAD
 		return (10);
+=======
+		return (11);
+>>>>>>> novalg
 =======
 		return (11);
 >>>>>>> novalg
@@ -31,6 +35,7 @@ static size_t	get_len(int n)
 	{
 		n = n / 10;
 		len++;
+<<<<<<< HEAD
 <<<<<<< HEAD
 	}
 	return (len);
@@ -103,6 +108,26 @@ static int		set_nbr(int n)
 		}
 		else
 		{
+=======
+	}
+	return (len);
+}
+
+static int		set_nbr(int n)
+{
+	int		nbr;
+
+	nbr = 0;
+	if (n < 0)
+	{
+		if (n == -2147483648)
+		{
+			nbr = n + 1;
+			nbr = -nbr;
+		}
+		else
+		{
+>>>>>>> novalg
 			nbr = n;
 			nbr = -nbr;
 		}
@@ -110,6 +135,9 @@ static int		set_nbr(int n)
 	else
 		nbr = n;
 	return (nbr);
+<<<<<<< HEAD
+>>>>>>> novalg
+=======
 >>>>>>> novalg
 }
 
