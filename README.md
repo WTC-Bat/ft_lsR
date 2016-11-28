@@ -23,3 +23,6 @@
 -	Sorting done using original functions. May be possible to do ascending and
 	descending in the same function instead of two separate functions, as it is
 	now.
+
+-	To have the output match macos 'ls', and extra ' ' char should be padded
+	onto the member in question. Comapre outputs for more.

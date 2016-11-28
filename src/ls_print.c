@@ -19,6 +19,7 @@ static void	print_total_blocks(t_ls *ls, t_lsargs *lsargs)
 		}
 		ls = ls->next;
 	}
+	ft_putnbr_endl(blocks);
 }
 
 static void	ls_print_entry_basic(t_ls *ls)
