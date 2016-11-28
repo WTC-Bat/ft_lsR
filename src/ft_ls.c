@@ -9,11 +9,11 @@ static void	ls_getelems2(t_ls *current, struct stat *st)
 	gp = getgrgid(st->st_gid);
 	ls_set_permissions(current, st);	//current->perms = ls_set_permissions(st)
 	current->hlinks = st->st_nlink;		//nlink_t!
-	current->uname = ft_strdup(pd->pw_name);				//FORMAT
-	current->gname = ft_strdup(gp->gr_name);				//FORMAT
+	current->uname = ft_strdup(pd->pw_name);
+	current->gname = ft_strdup(gp->gr_name);
 	current->size = st->st_size;
 	current->ttmtime = st->st_mtime;
-	current->mod_time = format_time(&st->st_mtime);			//FORMAT
+	current->mod_time = format_time(&st->st_mtime);
 	current->block_count = st->st_blocks;
 	current->is_dir = 0;
 	current->dir_path = NULL;
@@ -35,7 +35,7 @@ static t_ls	*ls_getelems(DIR *d, t_lsargs *lsargs)
 	struct dirent	*dent;
 	struct stat		*st;
 	t_ls			*current;
-	t_ls			*root;	//?
+	t_ls			*root;
 	char			*pth;
 
 	root = NULL;
@@ -48,9 +48,9 @@ static t_ls	*ls_getelems(DIR *d, t_lsargs *lsargs)
 		current->name = ls_getname(dent->d_name, st, pth, lsargs);
 		ls_getelems2(current, st);
 		ls_set_dirpath(current, st, pth);
-		current->next = root; //root;
-		root = current; //root = current;
-		ft_strdel(&pth); //free(pth);//? or below?
+		current->next = root;
+		root = current;
+		ft_strdel(&pth);
 	}
 	free(st);//?
 	// free(current);	//t_ls_free?
@@ -85,6 +85,7 @@ int			main(int argc, char **argv)
 	lsargs = (t_lsargs *)malloc(sizeof(t_lsargs));
 	analyze_args(argc, argv, lsargs);
 	ls = ls_init(lsargs);
+	ls_print(ls, lsargs);		////
 	// ft_strdel(&(lsargs)->path); 	//free(lsargs->path); //unless dedicated function
 	free(lsargs);					//make a dedicated function? for above?
 	t_ls_free(ls);

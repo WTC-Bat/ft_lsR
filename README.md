@@ -16,3 +16,10 @@
 -	'format_hlinks' and 'format_size' in 'ls_format.c' are over 25 lines
 -	go over 'format_uname' and 'format_gname' in 'ls_format.c' and make sure
 	the logic is all correct
+
+-	'do_sort.c' doesn't use any "memory copying functions" (ft_strdup, etc),
+	could this lead to errors?
+
+-	Sorting done using original functions. May be possible to do ascending and
+	descending in the same function instead of two separate functions, as it is
+	now.
