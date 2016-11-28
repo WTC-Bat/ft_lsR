@@ -22,10 +22,8 @@ static size_t	get_len(int n)
 	if (n == 0)
 		return (1);
 	if (n == -2147483648)
-<<<<<<< HEAD
-<<<<<<< HEAD
 		return (10);
-=======
+
 		return (11);
 >>>>>>> novalg
 =======
@@ -89,7 +87,6 @@ char			*ft_itoa(int n)
 	if (n == -2147483648)
 		istr[ft_strlen(istr) - 1] = '8';
 	return (istr);
-=======
 	}
 	return (len);
 }
@@ -108,7 +105,6 @@ static int		set_nbr(int n)
 		}
 		else
 		{
-=======
 	}
 	return (len);
 }
@@ -127,7 +123,6 @@ static int		set_nbr(int n)
 		}
 		else
 		{
->>>>>>> novalg
 			nbr = n;
 			nbr = -nbr;
 		}
@@ -135,10 +130,6 @@ static int		set_nbr(int n)
 	else
 		nbr = n;
 	return (nbr);
-<<<<<<< HEAD
->>>>>>> novalg
-=======
->>>>>>> novalg
 }
 
 char			*ft_itoa(int n)
