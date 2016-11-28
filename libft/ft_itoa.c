@@ -22,11 +22,16 @@ static size_t	get_len(int n)
 	if (n == 0)
 		return (1);
 	if (n == -2147483648)
+<<<<<<< HEAD
 		return (10);
+=======
+		return (11);
+>>>>>>> novalg
 	while (n != 0)
 	{
 		n = n / 10;
 		len++;
+<<<<<<< HEAD
 	}
 	return (len);
 }
@@ -79,4 +84,57 @@ char			*ft_itoa(int n)
 	if (n == -2147483648)
 		istr[ft_strlen(istr) - 1] = '8';
 	return (istr);
+=======
+	}
+	return (len);
 }
+
+static int		set_nbr(int n)
+{
+	int		nbr;
+
+	nbr = 0;
+	if (n < 0)
+	{
+		if (n == -2147483648)
+		{
+			nbr = n + 1;
+			nbr = -nbr;
+		}
+		else
+		{
+			nbr = n;
+			nbr = -nbr;
+		}
+	}
+	else
+		nbr = n;
+	return (nbr);
+>>>>>>> novalg
+}
+
+char			*ft_itoa(int n)
+{
+	char	*istr;
+	int		nbr;
+	size_t	nlen;
+
+	nlen = get_len(n);
+	istr = (char *)malloc(sizeof(char) * (nlen + 1));
+	if (istr == NULL)
+		return (NULL);
+	nbr = set_nbr(n);
+	*istr = '\0';
+	if (n == 0)
+		*--istr = '0';
+	while (nbr != 0)
+	{
+		*--istr = '0' + nbr % 10;
+		nbr = nbr / 10;
+	}
+	if (n < 0)
+		*--istr = '-';
+	if (n == -2147483648)
+		istr[ft_strlen(istr) - 1] = '8';
+	return (istr);
+ }
