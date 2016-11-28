@@ -7,12 +7,12 @@ static void	print_total_blocks(t_ls *ls, t_lsargs *lsargs)
 
 static void	ls_print_entry_long(t_ls *ls)
 {
-
+	ft_putendl("LONG");
 }
 
 static void	ls_print_entry_basic(t_ls *ls)
 {
-
+	ft_putendl("BASIC");
 }
 
 static void	do_print(t_ls *ls, t_lsargs *lsargs)
@@ -56,6 +56,6 @@ void		ls_print(t_ls *ls, t_lsargs *lsargs)
 			else
 				ls_sort_az(ls);
 		}
-		//do_print();
+		do_print(ls, lsargs);
 	}
 }
