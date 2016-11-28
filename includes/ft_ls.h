@@ -44,7 +44,8 @@ void	analyze_args(int argc, char **argv, t_lsargs *lsargs);
 int		arg_ispath(char *arg);
 /*do_sort.c*/
 void	do_sort(t_ls *root, t_ls *next);
-/*format_funcs.c*/
+/*ft_ls.c*/
+t_ls	*ls_init(t_lsargs *lsargs);
 char	*format_time(time_t *ttmtime);
 /*get_longest.c*/
 int		get_longest(t_ls *ls, char c);
