@@ -15,7 +15,7 @@ SRCS = ./ft_itoa.c ./ft_strcat.c ./ft_strchr.c ./ft_strcmp.c ./ft_strcpy.c \
 		./ft_putchar_fd.c ./ft_putendl.c ./ft_putendl_fd.c \
 		./ft_putnbr.c ./ft_putnbr_fd.c ./ft_putstr.c ./ft_putstr_fd.c \
 		./ft_strclr.c ./ft_strdel.c ./ft_striter.c ./ft_striteri.c \
-		./ft_putnbr_endl.c
+		./ft_putnbr_endl.c ./ft_startswith.c ./ft_endswith.c
 
 OBJS = ./ft_itoa.o ./ft_strcat.o ./ft_strchr.o ./ft_strcmp.o ./ft_strcpy.o \
 		./ft_strdup.o ./ft_strjoin.o ./ft_strmap.o ./ft_strmapi.o \
@@ -30,7 +30,7 @@ OBJS = ./ft_itoa.o ./ft_strcat.o ./ft_strchr.o ./ft_strcmp.o ./ft_strcpy.o \
 		./ft_putchar_fd.o ./ft_putendl.o ./ft_putendl_fd.o \
 		./ft_putnbr.o ./ft_putnbr_fd.o ./ft_putstr.o ./ft_putstr_fd.o \
 		./ft_strclr.o ./ft_strdel.o ./ft_striter.o ./ft_striteri.o \
-		./ft_putnbr_endl.o
+		./ft_putnbr_endl.o ./ft_startswith.o ./ft_endswith.o
 
 all: $(NAME)
 

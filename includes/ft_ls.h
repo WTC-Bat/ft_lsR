@@ -23,7 +23,6 @@ typedef struct	s_lsargs
 typedef struct		s_ls
 {
 	char			*perms;
-	// int				hlinks;
 	nlink_t			hlinks;
 	char			*strhlinks;
 	char			*uname;
@@ -52,6 +51,7 @@ int		get_longest(t_ls *ls, char c);
 /*ls_format.c*/
 void	ls_format(t_ls *ls);
 /*ls_funcs.c*/
+void	ls_copy_perms(char perms[], char newperms[]);
 char	*ls_getpath(t_lsargs *lsargs, char *d_name);
 char	*ls_getname(char *d_name, struct stat *st, char *pth, t_lsargs *lsargs);
 void	ls_set_dirpath(t_ls *ls, struct stat *st, char *pth);

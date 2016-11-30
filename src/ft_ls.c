@@ -7,8 +7,15 @@ static void	ls_getelems2(t_ls *current, struct stat *st)
 
 	pd = getpwuid(st->st_uid);
 	gp = getgrgid(st->st_gid);
-	ls_set_permissions(current, st);	//current->perms = ls_set_permissions(st)
-	current->hlinks = st->st_nlink;		//nlink_t!
+	ls_set_permissions(current, st);
+	//TMP??
+	if (current->perms == NULL)
+	{
+		ft_putendl_fd("Error setting permissions", 2);
+		exit(1);
+	}
+	//TMP??
+	current->hlinks = st->st_nlink;
 	current->uname = ft_strdup(pd->pw_name);
 	current->gname = ft_strdup(gp->gr_name);
 	current->size = st->st_size;
@@ -17,9 +24,6 @@ static void	ls_getelems2(t_ls *current, struct stat *st)
 	current->block_count = st->st_blocks;
 	current->is_dir = 0;
 	current->dir_path = NULL;
-
-	// free(pd);	//?
-	// free(gp);	//?
 }
 
 /*
@@ -52,8 +56,8 @@ static t_ls	*ls_getelems(DIR *d, t_lsargs *lsargs)
 		root = current;
 		ft_strdel(&pth);
 	}
-	free(st);//?
-	// free(current);	//t_ls_free?
+	free(st);
+		// t_ls_free(current);
 	ls_format(root);
 	return (root);
 }
@@ -84,9 +88,8 @@ int			main(int argc, char **argv)
 	lsargs = (t_lsargs *)malloc(sizeof(t_lsargs));
 	analyze_args(argc, argv, lsargs);
 	ls = ls_init(lsargs);
-	ls_print(ls, lsargs);		////
-	// ft_strdel(&(lsargs)->path); 	//free(lsargs->path); //unless dedicated function
-	free(lsargs);					//make a dedicated function? for above?
+	ls_print(ls, lsargs);
+	ft_strdel(&(lsargs)->path);
 	t_ls_free(ls);
 	return (0);
 }

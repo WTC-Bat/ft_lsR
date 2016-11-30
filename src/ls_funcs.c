@@ -27,7 +27,7 @@ char	*ls_getname(char *d_name, struct stat *st, char *pth, t_lsargs *lsargs)
 			ft_strcpy(name, d_name);
 			ft_strcat(name, " -> ");
 			ft_strcat(name, lname);
-			ft_strdel(&lname); //free(lname);
+			ft_strdel(&lname);
 			return (name);
 		}
 	}
@@ -73,22 +73,15 @@ void	t_ls_free(t_ls *ls)
 {
 	while (ls != NULL)
 	{
-		ft_strdel(&(ls)->perms);
-			// ft_strdel(&(ls)->strhlinks);
+			// ft_strdel(&(ls)->perms);	//?
+		ft_strdel(&(ls)->strhlinks);
 		ft_strdel(&(ls)->uname);
 		ft_strdel(&(ls)->gname);
-			// ft_strdel(&(ls)->strsize);
+		ft_strdel(&(ls)->strsize);
 		ft_strdel(&(ls)->mod_time);
 			// ft_strdel(&(ls)->name);
 		ft_strdel(&(ls)->dir_path);
-		// free(ls);
-
+		free(ls);
 		ls = ls->next;
 	}
 }
-
-// void	ls_set_stringvalues(t_ls *ls)
-// {
-// 	ls->strhlinks = format_hlinks(ls->hlinks);
-// 	// ls->strsize = format_size()
-// }

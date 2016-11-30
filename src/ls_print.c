@@ -97,7 +97,7 @@ void		ls_print(t_ls *ls, t_lsargs *lsargs)
 				ls_sort_az(ls);
 		}
 		do_print(ls, lsargs);
-		// if (lsargs->recursive == 1)
-		// 	ls_recursion(ls, lsargs);
+		if (lsargs->recursive == 1)
+			ls_recursion(ls, lsargs);
 	}
 }

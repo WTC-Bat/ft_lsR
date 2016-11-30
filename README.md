@@ -24,5 +24,9 @@
 	descending in the same function instead of two separate functions, as it is
 	now.
 
--	To have the output match macos 'ls', and extra ' ' char should be padded
-	onto the member in question. Comapre outputs for more.
+-	To have the output match macOS 'ls', and extra ' ' char should be padded
+	onto the member in question. Compare outputs for more.
+
+-	Problem freeing (ft_strdel):
+	'ls->perms'
+	'ls->name'

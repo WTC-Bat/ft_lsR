@@ -1,17 +1,23 @@
 #include "ft_ls.h"
 
-// static void	ls_set_permissions2(t_ls *ls, struct stat *st, char *perms)
-static void	ls_set_permissions2(t_ls *ls, char *perms)
+static void	ls_set_permissions2(t_ls *ls, struct stat *st, char *perms)
 {
+	if (st->st_mode & S_IXOTH)
+		perms[9] = 'x';
 	perms[10] = '\0';
-	ls->perms = perms;
+	ls->perms = ft_strdup(perms);
+	ft_strdel(&perms);
 }
 
 void		ls_set_permissions(t_ls *ls, struct stat *st)
 {
 	char	*perms;
 
-	perms = (char *)malloc(sizeof(char) * 11);
+	if ((perms = (char *)malloc(sizeof(char) * 11)) == NULL)
+	{
+		perms = NULL;
+		return ;
+	}
 	ft_memset(perms, '-', 10);	//TEST - libft version may cause leaks
 	if (S_ISDIR(st->st_mode) > 0)
 		perms[0] = 'd';
@@ -31,7 +37,5 @@ void		ls_set_permissions(t_ls *ls, struct stat *st)
 		perms[7] = 'r';
 	if (st->st_mode & S_IWOTH)
 		perms[8] = 'w';
-	if (st->st_mode & S_IXOTH)
-		perms[9] = 'x';
-	ls_set_permissions2(ls, perms);
+	ls_set_permissions2(ls, st, perms);
 }
