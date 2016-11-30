@@ -26,3 +26,8 @@
 
 -	To have the output match macos 'ls', and extra ' ' char should be padded
 	onto the member in question. Comapre outputs for more.
+
+-	Seems to be a problem with 'perms' on certain files.
+	(Tested on '.git' directory)
+	-	'ft_ls2' doesn't have this problem ???
+		(Maybe try fix padding in 'ft_ls2')
