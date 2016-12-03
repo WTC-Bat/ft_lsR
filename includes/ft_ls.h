@@ -61,7 +61,8 @@ void	ls_print(t_ls *ls, t_lsargs *lsargs);
 /*ls_print_members.c*/
 void	ls_print_members(t_ls *ls);
 /*ls_set_permissions.c*/
-void	ls_set_permissions(t_ls *ls, struct stat *st);
+// void	ls_set_permissions(t_ls *ls, struct stat *st);
+char	*ls_set_permissions(struct stat *st);
 /*ls_sort.c*/
 void	ls_sort_az(t_ls *ls);
 void	ls_rsort_az(t_ls *ls);

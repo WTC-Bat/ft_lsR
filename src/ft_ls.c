@@ -7,7 +7,10 @@ static void	ls_getelems2(t_ls *current, struct stat *st)
 
 	pd = getpwuid(st->st_uid);
 	gp = getgrgid(st->st_gid);
-	ls_set_permissions(current, st);	//current->perms = ls_set_permissions(st)
+	ft_putstr(current->name);
+	ft_putendl(": perms");
+	// ls_set_permissions(current, st);	//current->perms = ls_set_permissions(st)
+	current->perms = ls_set_permissions(st);
 	current->hlinks = st->st_nlink;		//nlink_t!
 	current->uname = ft_strdup(pd->pw_name);
 	current->gname = ft_strdup(gp->gr_name);
